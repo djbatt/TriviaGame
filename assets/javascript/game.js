@@ -5,26 +5,30 @@ $(document).ready( function() {
             text: "Who shot Mr Burns?",
             answerOne: "Smithers",
             answerTwo: "Chief Wiggum",
-            answerThree: "Maggie", // answer
-            answerFour: "Homer"
+            answerThree: "Maggie",
+            answerFour: "Homer",
+            solution: answerThree
         }, {
             text: "What beer do they drink in the Simpsons?",
             answerOne: "Duck",
-            answerTwo: "Duff", // answer
+            answerTwo: "Duff",
             answerThree: "Rush",
-            answerFour: "Buzz"
+            answerFour: "Buzz",
+            solution: answerTwo
         }, {
             text: "Who really founded Springfield?",
-            answerOne: "Hans Sprungfeld", // answer
+            answerOne: "Hans Sprungfeld",
             answerTwo: "Joe Duff",
-            answerThree: "Jebediah Springfield", // answer
-            answerFour: "Ezekiel Springfield"
+            answerThree: "Jebediah Springfield",
+            answerFour: "Ezekiel Springfield",
+            solution: [answerOne, answerThree]
         }, {
             text: "How many eyes does blinky have?",
-            answerOne: "Three", // answer
+            answerOne: "Three",
             answerTwo: "Four",
             answerThree: "Two",
-            answerFour: "Six"
+            answerFour: "Six",
+            solution: answerOne
         }, {
             text: "What is the local radio in Springfield?",
             answerOne: "XRWN Radio",
@@ -125,19 +129,38 @@ $(document).ready( function() {
         // game should give you 20 seconds to answer each question, after 20 seconds or an answer click go to the next question.
         // if correct display a congratulations page, if wrong display wrong answer page which includes the correct answer
         // in the end display number of correct answers, and wrong answers, and a button to initiatePage()
-        
+
+        shuffleQuestion: function() {
+            var i = 0;
+            var j = 0;
+            temp = null;
+
+            for (i = trivia.questions.length - 1; i > 0; i -=1) {
+                j = Math.floor(Math.random() * (i + 1));
+                temp = trivia.questions[i];
+                trivia.questions[i] = trivia.questions[j];
+                trivia.questions[j] = temp;
+            }
+        },
+
         initiatePage: function() {
+            trivia.shuffleQuestion();
+
             input = false;
             correct = 0;
             wrong = 0;
 
-            var currentQuestion = trivia.questions[Math.floor(Math.random() * trivia.questions.length)];
+            var currentQuestion = trivia.questions[0];
 
             $("#question").text(currentQuestion.text);
             $("#answerOne").text(currentQuestion.answerOne);
             $("#answerTwo").text(currentQuestion.answerTwo);
             $("#answerThree").text(currentQuestion.answerThree);
             $("#answerFour").text(currentQuestion.answerFour);
+        },
+
+        userGuess: function() {
+            $("#answer")
         }
     }
 
