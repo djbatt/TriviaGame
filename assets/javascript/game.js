@@ -34,97 +34,113 @@ $(document).ready( function() {
             answerOne: "XRWN Radio",
             answerTwo: "YOTO Radio",
             answerThree: "BNKO Radio",
-            answerFour: "KBBL Radio" // asnwer
+            answerFour: "KBBL Radio",
+            solution: answerFour
         }, {
             text: "Whos the Springfield daredevil?",
             answerOne: "Lisa",
             answerTwo: "Willie",
             answerThree: "Homer",
-            answerFour: "Bart" // answer
+            answerFour: "Bart",
+            solution: answerFour
         }, {
             text: "What is the name of Homer's mother?",
             answerOne: "Mary Simpson",
-            answerTwo: "Mona Simpson", // answer
+            answerTwo: "Mona Simpson",
             answerThree: "Jacqueline Bouvier",
-            answerFour: "Patty Bouvier"
+            answerFour: "Patty Bouvier",
+            solution: answerOne
         }, {
             text: "What is the name of Bart's Dog?",
             answerOne: "Patty",
             answerTwo: "Lassie",
-            answerThree: "Laddie", // answer
-            answerFour: "Buddy"
+            answerThree: "Laddie",
+            answerFour: "Buddy",
+            solution: answerThree
         }, {
             text: "Who owned the Kwik-E Mart?",
             answerOne: "Apu",
             answerTwo: "Anu",
-            answerThree: "Abu", // answer
-            answerFour: "Ado"
+            answerThree: "Abu",
+            answerFour: "Ado",
+            solution: answerThree
         }, {
             text: "What is Princiapl Skinner's real name?",
             answerOne: "Seymour Skinner",
             answerTwo: "Walter Seymour Skinner",
             answerThree: "Waltor Seymour Skinner",
-            answerFour: "Armin Tamzarian" // answer
+            answerFour: "Armin Tamzarian",
+            solution: answerFour
         }, {
             text: "What is the name of Homer's Bowling team?",
             answerOne: "Rolling Fools",
-            answerTwo: "Pin Pals", // answer
+            answerTwo: "Pin Pals",
             answerThree: "Simpson Strikes",
-            answerFour: "Pinsters"
+            answerFour: "Pinsters",
+            solution: answerTwo
         }, {
             text: "What are the names of Marge's sisters?",
             answerOne: "Maggie and Pattie",
             answerTwo: "Selma and Maggie",
             answerThree: "Mary and Selma",
-            answerFour: "Selma and Pattie" // answer
+            answerFour: "Selma and Pattie",
+            solution: answerFour
         }, {
             text: "What is the name of Ned Flander's Store?",
             answerOne: "Flander's Landing",
-            answerTwo: "The Leftorium", // answer
+            answerTwo: "The Leftorium",
             answerThree: "The Bible Bunch",
-            answerFour: "Library Losers"
+            answerFour: "Library Losers",
+            solution: answerTwo
         }, {
             text: "Which of the following is not one of Bart's catchphrases?",
             answerOne: "Eat my shorts!",
             answerTwo: "Don't have a cow, man!",
-            answerThree: "Ha-ha!", // answer
-            answerFour: "Ay, Caramba!"
+            answerThree: "Ha-ha!",
+            answerFour: "Ay, Caramba!",
+            solution: answerThree
         }, {
-            text: "Which part of the opening credits changes?",
+            text: "Which part of the opening credits usually changes?",
             answerOne: "Bart skateboarding",
             answerTwo: "Homer crashing",
-            answerThree: "The family sitting", // answer
-            answerFour: "Lisa playing clarinette"
+            answerThree: "The family sitting",
+            answerFour: "Lisa playing clarinette",
+            solution: answerThree
         }, {
             text: "How old is bart?",
             answerOne: "Eleven",
             answerTwo: "Nine",
             answerThree: "Twelve",
-            answerFour: "Ten" // answer
+            answerFour: "Ten",
+            solution: answerFour
         }, {
             text: "What is Sideshow Bob's middle name?",
             answerOne: "Terwilliger",
-            answerTwo: "Underdunk", // answer
+            answerTwo: "Underdunk",
             answerThree: "Robert",
-            answerFour: "Junior"
+            answerFour: "Junior",
+            solution: answerTwo
         }, {
             text: "Where does Homer drink?",
-            answerOne: "Moe's Tavern", // answer
+            answerOne: "Moe's Tavern",
             answerTwo: "Joe's Tavern",
             answerThree: "Brown Lantern",
-            answerFour: "Whole Cavern"
+            answerFour: "Whole Cavern",
+            solution: answerOne,
         }, {
             text: "Who is the minister of Springfield?",
             answerOne: "Carlson",
             answerTwo: "Skinner",
             answerThree: "Lovejoy",
-            answerFour: "Flanders"
+            answerFour: "Flanders",
+            solution: answerThree
         }, {
             text: "What is the name of Mr Burn's teddy bear?",
             answerOne: "Nono",
             answerTwo: "Bobo",
             answerThree: "Fobo",
-            answerFour: "Nobo"
+            answerFour: "Nobo",
+            solution: answerTwo
         }],
         // game should give you 20 seconds to answer each question, after 20 seconds or an answer click go to the next question.
         // if correct display a congratulations page, if wrong display wrong answer page which includes the correct answer
@@ -160,7 +176,9 @@ $(document).ready( function() {
         },
 
         userGuess: function() {
-            $("#answer")
+            $("#answerOne", "#answerTwo", "#answerThree", "answerFour").click(function() {
+                
+            });
         }
     }
 
