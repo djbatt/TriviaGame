@@ -56,81 +56,88 @@ $(document).ready( function() {
             answerThree: "Abu", // answer
             answerFour: "Ado"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "What is Princiapl Skinner's real name?",
+            answerOne: "Seymour Skinner",
+            answerTwo: "Walter Seymour Skinner",
+            answerThree: "Waltor Seymour Skinner",
+            answerFour: "Armin Tamzarian" // answer
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "What is the name of Homer's Bowling team?",
+            answerOne: "Rolling Fools",
+            answerTwo: "Pin Pals", // answer
+            answerThree: "Simpson Strikes",
+            answerFour: "Pinsters"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "What are the names of Marge's sisters?",
+            answerOne: "Maggie and Pattie",
+            answerTwo: "Selma and Maggie",
+            answerThree: "Mary and Selma",
+            answerFour: "Selma and Pattie" // answer
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "What is the name of Ned Flander's Store?",
+            answerOne: "Flander's Landing",
+            answerTwo: "The Leftorium", // answer
+            answerThree: "The Bible Bunch",
+            answerFour: "Library Losers"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "Which of the following is not one of Bart's catchphrases?",
+            answerOne: "Eat my shorts!",
+            answerTwo: "Don't have a cow, man!",
+            answerThree: "Ha-ha!", // answer
+            answerFour: "Ay, Caramba!"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "Which part of the opening credits changes?",
+            answerOne: "Bart skateboarding",
+            answerTwo: "Homer crashing",
+            answerThree: "The family sitting", // answer
+            answerFour: "Lisa playing clarinette"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "How old is bart?",
+            answerOne: "Eleven",
+            answerTwo: "Nine",
+            answerThree: "Twelve",
+            answerFour: "Ten" // answer
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "What is Sideshow Bob's middle name?",
+            answerOne: "Terwilliger",
+            answerTwo: "Underdunk", // answer
+            answerThree: "Robert",
+            answerFour: "Junior"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "Where does Homer drink?",
+            answerOne: "Moe's Tavern", // answer
+            answerTwo: "Joe's Tavern",
+            answerThree: "Brown Lantern",
+            answerFour: "Whole Cavern"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "Who is the minister of Springfield?",
+            answerOne: "Carlson",
+            answerTwo: "Skinner",
+            answerThree: "Lovejoy",
+            answerFour: "Flanders"
         }, {
-            text: "?",
-            answerOne: "",
-            answerTwo: "",
-            answerThree: "",
-            answerFour: ""
+            text: "What is the name of Mr Burn's teddy bear?",
+            answerOne: "Nono",
+            answerTwo: "Bobo",
+            answerThree: "Fobo",
+            answerFour: "Nobo"
         }],
-
-        variable: 0,
+        // game should give you 20 seconds to answer each question, after 20 seconds or an answer click go to the next question.
+        // if correct display a congratulations page, if wrong display wrong answer page which includes the correct answer
+        // in the end display number of correct answers, and wrong answers, and a button to initiatePage()
+        
         initiatePage: function() {
-            var currentQuestion = Math.floor(Math.random() * trivia.questions.length);
+            input = false;
+            correct = 0;
+            wrong = 0;
 
-            $("#question").text(trivia.questions[currentQuestion].text);
-            for (var i = 0; i < trivia.questions.length; i++) {
-                console.log();
-            }
+            var currentQuestion = trivia.questions[Math.floor(Math.random() * trivia.questions.length)];
+
+            $("#question").text(currentQuestion.text);
+            $("#answerOne").text(currentQuestion.answerOne);
+            $("#answerTwo").text(currentQuestion.answerTwo);
+            $("#answerThree").text(currentQuestion.answerThree);
+            $("#answerFour").text(currentQuestion.answerFour);
         }
     }
 

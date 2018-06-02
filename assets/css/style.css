@@ -1,3 +1,8 @@
 body {
+    background-image: url("../images/background.jpg");
     font-family: 'Bowlby One SC', cursive;
+}
+
+.container {
+    background-color: #f0f0e1;
 }
