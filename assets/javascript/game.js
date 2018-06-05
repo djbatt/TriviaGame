@@ -145,7 +145,9 @@ $(document).ready( function() {
         // game should give you 20 seconds to answer each question, after 20 seconds or an answer click go to the next question.
         // if correct display a congratulations page, if wrong display wrong answer page which includes the correct answer
         // in the end display number of correct answers, and wrong answers, and a button to initiatePage()
-        currentQuestion: [],
+        input: false,
+        currentQuestionIndex: 0,
+        
 
         shuffleQuestion: function() {
             var i = 0;
@@ -168,7 +170,7 @@ $(document).ready( function() {
             correct = 0;
             wrong = 0;
 
-            currentQuestion = trivia.questions[0];
+            currentQuestion = trivia.questions[trivia.currentQuestionIndex];
 
             $("#question").text(currentQuestion.text);
             $("#answerOne").text(currentQuestion.answerOne);
@@ -178,20 +180,20 @@ $(document).ready( function() {
         },
 
         nextQuestion: function() {
+            currentQuestion = trivia.questions[++trivia.currentQuestionIndex]
             $("#question").text(currentQuestion.text);
             $("#answerOne").text(currentQuestion.answerOne);
             $("#answerTwo").text(currentQuestion.answerTwo);
             $("#answerThree").text(currentQuestion.answerThree);
             $("#answerFour").text(currentQuestion.answerFour);
-            currentQuestion = trivia.questions[trivia.currentQuestion++];
-            console.log("success");
+            console.log(currentQuestion);
 
             input = false;
         },
 
         userGuess: function() {
             $("#answerOne, #answerTwo, #answerThree, #answerFour").click(function() {
-                var input = true;
+                input = true;
                 trivia.nextQuestion();
             });
         }
