@@ -147,6 +147,11 @@ $(document).ready( function() {
         // in the end display number of correct answers, and wrong answers, and a button to initiatePage()
         input: false,
         currentQuestionIndex: 0,
+        time: 20,
+
+        timer: function() {
+            $("#timer").text(trivia.time);
+        },
         
 
         shuffleQuestion: function() {
@@ -165,18 +170,22 @@ $(document).ready( function() {
         initiatePage: function() {
             trivia.shuffleQuestion();
             trivia.userGuess();
+            trivia.timer();
 
             input = false;
             correct = 0;
             wrong = 0;
 
             currentQuestion = trivia.questions[trivia.currentQuestionIndex];
-
             $("#question").text(currentQuestion.text);
             $("#answerOne").text(currentQuestion.answerOne);
             $("#answerTwo").text(currentQuestion.answerTwo);
             $("#answerThree").text(currentQuestion.answerThree);
             $("#answerFour").text(currentQuestion.answerFour);
+
+            for (var i = 0; i < trivia.questions.length; i++) {
+                setTimeout
+            }
         },
 
         nextQuestion: function() {
@@ -186,7 +195,7 @@ $(document).ready( function() {
             $("#answerTwo").text(currentQuestion.answerTwo);
             $("#answerThree").text(currentQuestion.answerThree);
             $("#answerFour").text(currentQuestion.answerFour);
-            console.log(currentQuestion);
+            console.log(trivia.currentQuestionIndex);
 
             input = false;
         },
