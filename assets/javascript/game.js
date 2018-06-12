@@ -145,12 +145,23 @@ $(document).ready( function() {
         // game should give you 20 seconds to answer each question, after 20 seconds or an answer click go to the next question.
         // if correct display a congratulations page, if wrong display wrong answer page which includes the correct answer
         // in the end display number of correct answers, and wrong answers, and a button to initiatePage()
-        input: false,
+        correct: 0,
+        wrong: 0,
         currentQuestionIndex: 0,
         time: 20,
-
+        // we need a setinterval function to run the timer
         timer: function() {
+            timeFunction = setInterval(trivia.decrementTime, 1000);
+        },
+
+        decrementTime: function() {
+            trivia.time--;
             $("#timer").text(trivia.time);
+
+            if (trivia.time === 0) {
+                trivia.nextQuestion();
+                wrong++;
+            }
         },
         
 
@@ -170,26 +181,28 @@ $(document).ready( function() {
         initiatePage: function() {
             trivia.shuffleQuestion();
             trivia.userGuess();
-            trivia.timer();
 
             input = false;
             correct = 0;
             wrong = 0;
 
             currentQuestion = trivia.questions[trivia.currentQuestionIndex];
+            $("#timer").text(trivia.time);
             $("#question").text(currentQuestion.text);
             $("#answerOne").text(currentQuestion.answerOne);
             $("#answerTwo").text(currentQuestion.answerTwo);
             $("#answerThree").text(currentQuestion.answerThree);
             $("#answerFour").text(currentQuestion.answerFour);
 
-            for (var i = 0; i < trivia.questions.length; i++) {
-                setTimeout
-            }
+            trivia.timer();
         },
 
         nextQuestion: function() {
-            currentQuestion = trivia.questions[++trivia.currentQuestionIndex]
+            trivia.time = 20;
+            $("#timer").text(trivia.time);
+
+            currentQuestion = trivia.questions[++trivia.currentQuestionIndex] // set the currentQueston to the next question
+
             $("#question").text(currentQuestion.text);
             $("#answerOne").text(currentQuestion.answerOne);
             $("#answerTwo").text(currentQuestion.answerTwo);
