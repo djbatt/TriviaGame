@@ -182,7 +182,6 @@ $(document).ready( function() {
             trivia.shuffleQuestion();
             trivia.userGuess();
 
-            input = false;
             correct = 0;
             wrong = 0;
 
@@ -208,18 +207,26 @@ $(document).ready( function() {
             $("#answerTwo").text(currentQuestion.answerTwo);
             $("#answerThree").text(currentQuestion.answerThree);
             $("#answerFour").text(currentQuestion.answerFour);
-            console.log(trivia.currentQuestionIndex);
+        },
 
-            input = false;
+        endGame: function() {
+
         },
 
         userGuess: function() {
-            $("#answerOne, #answerTwo, #answerThree, #answerFour").click(function() {
-                input = true;
+            $("#answerOne, #answerTwo, #answerThree, #answerFour").click(function(guess) {
+                var userInput = guess;
+
+                if (userInput.target.id === currentQuestion.solution.id) {
+                    correct++;
+                } else {
+                    wrong++;
+                }
+
                 trivia.nextQuestion();
             });
         }
     }
 
     trivia.initiatePage();
-});
+}); 
