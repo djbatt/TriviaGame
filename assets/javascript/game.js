@@ -1,4 +1,4 @@
-$(document).ready( function() {
+$(document).ready(function() {
     var trivia = {
         
         questions: [{ // 20 questions, remember 0-19 in questions array
@@ -142,7 +142,6 @@ $(document).ready( function() {
             answerFour: "Nobo",
             solution: answerTwo
         }],
-        // game should give you 20 seconds to answer each question, after 20 seconds or an answer click go to the next question.
         // if correct display a congratulations page, if wrong display wrong answer page which includes the correct answer
         // in the end display number of correct answers, and wrong answers, and a button to initiatePage()
         correct: 0,
@@ -218,12 +217,16 @@ $(document).ready( function() {
                 var userInput = guess;
 
                 if (userInput.target.id === currentQuestion.solution.id) {
-                    correct++;
+                    trivia.correct++;
+                    alert("You got this one right, congratulations!")
                 } else {
-                    wrong++;
+                    trivia.wrong++;
+                    alert("You got this one wrong!, the right answer was\xa0" + currentQuestion.solution.textContent);
                 }
 
                 trivia.nextQuestion();
+                console.log(trivia.wrong);
+                console.log(trivia.correct);
             });
         }
     }
